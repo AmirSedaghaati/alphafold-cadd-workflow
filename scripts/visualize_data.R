@@ -5,7 +5,7 @@ library(ggplot2)
 print("Starting visualization process...")
 
 # --- Chart 1: Drug binding propensity ranking ---
-df_binding <- read.csv("binding_results.csv")
+df_binding <- read.csv("results/binding_results.csv")
 
 p1 <- ggplot(df_binding, aes(x=reorder(Compound, Binding_Affinity), y=Binding_Affinity, fill=Lipinski_Pass)) +
   geom_bar(stat="identity", width=0.5, color="black") +
@@ -22,7 +22,7 @@ ggsave("plot_binding_affinity.png", plot=p1, width=8, height=4, dpi=300)
 print("1. 'plot_binding_affinity.png' saved.")
 
 # --- Second chart: Measuring the quality of the Alphafold structure ---
-df_af <- read.csv("alphafold_confidence.csv")
+df_af <- read.csv("results/alphafold_confidence.csv")
 
 p2 <- ggplot(df_af, aes(x=Residue, y=Confidence_pLDDT)) +
   geom_line(color="#2196F3", size=0.8) +
