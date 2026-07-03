@@ -16,6 +16,14 @@ This repository demonstrates a fully automated Computer-Aided Drug Design (CADD)
 ## Results
 Based on the docking simulation, **Celecoxib** demonstrated the strongest predicted binding affinity (-6.541 kcal/mol) and successfully passed the Lipinski filter.
 
+### Visualizations
+
+#### 1. AlphaFold Model Confidence (pLDDT Score)
+![AlphaFold Confidence Score](results/plot_alphafold_confidence.png)
+
+#### 2. Virtual Screening Summary
+![Docking Binding Affinities](results/plot_binding_affinity.png)
+
 ## Scientific Disclaimer
 This is a portfolio project utilizing publicly available computational tools. Computational predictions of binding affinity (*in silico*) serve as an initial filter to prioritize compounds. These results do not guarantee biological activity and require rigorous experimental validation (*in vitro* and *in vivo*) to confirm actual therapeutic efficacy.
 
