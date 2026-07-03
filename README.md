@@ -11,6 +11,7 @@ This repository demonstrates a fully automated Computer-Aided Drug Design (CADD)
 3. **Molecular Docking**: Conducted virtual screening of the selected ligands against the receptor using AutoDock Vina.
 4. **Filtering**: Applied Lipinski's Rule of Five screening via Python (`pandas`, `RDKit`/cheminformatics logic).
 5. **Visualization**: Binding affinities and filter results were plotted using R (`ggplot2`).
+6. **Nextflow Automation**: Scaled the workflow using Nextflow (DSL2) for parallel processing and automated Python log extraction.
 
 ## Results
 Based on the docking simulation, **Celecoxib** demonstrated the strongest predicted binding affinity (-6.541 kcal/mol) and successfully passed the Lipinski filter.
@@ -22,3 +23,15 @@ This is a portfolio project utilizing publicly available computational tools. Co
 * **AlphaFold**: Jumper, J., Evans, R., Pritzel, A. et al. Highly accurate protein structure prediction with AlphaFold. *Nature* 596, 583–589 (2021).
 * **ColabFold**: Mirdita, M., Schütze, K., Moriwaki, Y. et al. ColabFold: making protein folding accessible to all. *Nature Methods* 19, 679–682 (2022).
 * **AutoDock Vina**: Trott, O., & Olson, A. J. AutoDock Vina: improving the speed and accuracy of docking with a new scoring function. *Journal of computational chemistry*, 31(2), 455-461 (2010).
+
+```mermaid
+graph TD
+    A[data/*.pdb Receptors] --> C(PREP_AND_DOCK Process)
+    B[data/*.sdf Ligands] --> C
+    C --> D[results/nextflow_output/docking_results]
+    C --> E[Raw Vina Logs]
+    E --> F(ANALYZE_RESULTS Process)
+    F --> G[results/nextflow_output/analysis/binding_affinities_summary.csv]
+    
+    style C fill:#4CAF50,stroke:#333,stroke-width:2px
+    style F fill:#2196F3,stroke:#333,stroke-width:2px
