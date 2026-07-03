@@ -1,3 +1,7 @@
 venv/
 __pycache__/
 *.exe
+# Nextflow artifacts
+.nextflow/
+.nextflow.log*
+work/
