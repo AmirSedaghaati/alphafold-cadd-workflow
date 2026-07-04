@@ -6,7 +6,7 @@ This repository demonstrates a fully automated Computer-Aided Drug Design (CADD)
 *Which of these known compounds (Celecoxib, Indomethacin, Ibuprofen) shows the strongest predicted binding affinity for the TREM2 target using an AlphaFold-predicted structure?*
 
 ## Workflow and Methodology
-1. **Protein Preparation**: Protein structure was predicted using AlphaFold (via ColabFold). Rank 1 model was selected.
+1. **Protein Preparation**: Protein structure was predicted using AlphaFold (via ColabFold). Rank 1 model was selected(pLDDT: 81.51).
 2. **Confidence Analysis**: Extracted pLDDT scores per residue and visualized them using R (`ggplot2`).
 3. **Molecular Docking**: Conducted virtual screening of the selected ligands against the receptor using AutoDock Vina.
 4. **Filtering**: Applied Lipinski's Rule of Five screening via Python (`pandas`, `RDKit`/cheminformatics logic).
@@ -14,7 +14,7 @@ This repository demonstrates a fully automated Computer-Aided Drug Design (CADD)
 6. **Nextflow Automation**: Scaled the workflow using Nextflow (DSL2) for parallel processing and automated Python log extraction.
 
 ## Results
-Based on the docking simulation, **Celecoxib** demonstrated the strongest predicted binding affinity (-6.541 kcal/mol) and successfully passed the Lipinski filter.
+Based on the docking simulation, **Celecoxib** demonstrated the strongest predicted binding affinity (-6.5 kcal/mol) and successfully passed the Lipinski filter.
 
 ### Visualizations
 
