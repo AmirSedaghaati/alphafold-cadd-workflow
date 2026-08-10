@@ -5,3 +5,6 @@ __pycache__/
 .nextflow/
 .nextflow.log*
 work/
+.Rhistory
+.Rproj.user/
+.RData
