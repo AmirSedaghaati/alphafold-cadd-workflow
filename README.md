@@ -1,6 +1,6 @@
 # AlphaFold CADD Workflow: TREM2 Target
 
-This repository demonstrates a fully automated Computer-Aided Drug Design (CADD) pipeline, connecting structural biology predictions with virtual screening workflows. This repo connects directly to the concepts covered in the EMBL-EBI AlphaFold course, integrating them with practical computational chemistry skills.
+This repository demonstrates a fully automated Computer-Aided Drug Design (CADD) pipeline, connecting structural biology predictions with virtual screening workflows. This project applies AlphaFold/ColabFold structure-prediction concepts to a practical computational chemistry workflow.
 
 ## Scientific Question
 *Which of these known compounds (Celecoxib, Indomethacin, Ibuprofen) shows the strongest predicted binding affinity for the TREM2 target using an AlphaFold-predicted structure?*
