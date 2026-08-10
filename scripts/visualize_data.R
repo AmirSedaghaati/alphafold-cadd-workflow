@@ -1,5 +1,5 @@
-# Installing and activating the graphics package
-install.packages("ggplot2")
+# Installing and activating the graphics package (only if not already installed)
+if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
 library(ggplot2)
 
 print("Starting visualization process...")
