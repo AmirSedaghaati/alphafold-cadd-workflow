@@ -21,9 +21,9 @@ process PREP_AND_DOCK {
     obabel -ipdb $receptor -opdbqt -O receptor.pdbqt -xr
     obabel -isdf $ligand -opdbqt -O ligand.pdbqt --gen3d
 
-    vina --receptor receptor.pdbqt --ligand ligand.pdbqt \
-         --center_x 0 --center_y 0 --center_z 0 \
-         --size_x 20 --size_y 20 --size_z 20 \
+vina --receptor receptor.pdbqt --ligand ligand.pdbqt \
+         --center_x -13.681 --center_y -1.686 --center_z 4.773 \
+         --size_x 137.500 --size_y 91.140 --size_z 130.500 \
          --out ${prefix}_out.pdbqt \
          --log ${prefix}_log.txt
     """
@@ -45,14 +45,13 @@ process ANALYZE_RESULTS {
     import glob
     import pandas as pd
 
-    results = []
+    import re
     for log_file in glob.glob("*_log.txt"):
         with open(log_file, 'r') as f:
-            for line in f.readlines():
-                if "   1 " in line:  # Extracting the best connection mode (Pose 1)
-                    affinity = float(line.split()[1])
-                    results.append({'Complex': log_file.replace('_log.txt', ''), 'Affinity (kcal/mol)': affinity})
-                    break
+            content = f.read()
+        match = re.search(r"^\s*1\s+([-+]?\d+\.\d+)", content, re.MULTILINE)
+        if match:
+            results.append({'Complex': log_file.replace('_log.txt', ''), 'Affinity (kcal/mol)': float(match.group(1))})
     
     df = pd.DataFrame(results).sort_values(by='Affinity (kcal/mol)')
     df.to_csv("binding_affinities_summary.csv", index=False)
