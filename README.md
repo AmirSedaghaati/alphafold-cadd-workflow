@@ -43,3 +43,17 @@ graph TD
     
     style C fill:#4CAF50,stroke:#333,stroke-width:2px
     style F fill:#2196F3,stroke:#333,stroke-width:2px
+```
+
+
+## Usage
+
+Place receptor structures in `data/*.pdb` and ligands in `data/*.sdf`, then run:
+
+```bash
+nextflow run main.nf
+```
+
+Docking outputs are written to `results/nextflow_output/docking_results/` and the affinity summary to `results/nextflow_output/analysis/binding_affinities_summary.csv`.
+
+**Scope:** AlphaFold/ColabFold structure prediction and pLDDT plotting were done beforehand; the Nextflow workflow automates docking (`PREP_AND_DOCK`) and result extraction (`ANALYZE_RESULTS`).
