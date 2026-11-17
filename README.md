@@ -15,6 +15,7 @@ This repository connects structural biology predictions to virtual screening in 
 
 ## Results
 Based on the docking simulation, **Celecoxib** demonstrated the strongest predicted binding affinity (-6.5 kcal/mol) and successfully passed the Lipinski filter.
+
 Note: the Nextflow demo run included in `results/nextflow_output/` covers a single ligand (celecoxib) and reports −5.0 kcal/mol with the search box defined in `main.nf`; the −6.5 kcal/mol figure above comes from the earlier docking run of all three compounds. Vina scores depend on the search box and settings, so the two values are not directly comparable.
 
 ### Visualizations
