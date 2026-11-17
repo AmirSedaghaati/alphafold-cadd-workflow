@@ -46,6 +46,7 @@ process ANALYZE_RESULTS {
     import pandas as pd
 
     import re
+    results = []
     for log_file in glob.glob("*_log.txt"):
         with open(log_file, 'r') as f:
             content = f.read()
